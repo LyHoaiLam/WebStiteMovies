@@ -4,10 +4,14 @@ import { Reset } from 'styled-reset';
 import 'normalize.css';
 
 import Header from "./pages/Header/Header";
+import Container from "./pages/Container/Container";
+
 function App() {
   return (
     <div className="App">
     <Header />
+    <Container />
+
     </div>
   );
 }
