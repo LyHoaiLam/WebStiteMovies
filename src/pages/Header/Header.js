@@ -16,7 +16,7 @@ function Header() {
             <input className='input-search' placeholder='Search'/>
             <button onClick={handleLogin} className='button-login'>
             <FontAwesomeIcon className='input-icon-user' icon={faUser} />
-                Sign in
+                 <span className='textLogin'>Sign in</span>
             </button>
         </div>
         </div>

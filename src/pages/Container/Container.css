@@ -1,4 +1,84 @@
 .container {
     background-color: #6e6e73;
     height: 800px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    width: 90%;
+    border-bottom-left-radius: 20px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    text-align: center;
+}
+
+.text-overlay:hover {
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.container-img {
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 20px;
+    width: 420px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-img:hover {
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 30px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px
+}
+
+@media (max-width: 430px) {
+
+    .container-img {
+        margin-left: 5px;
+        width: 180px;
+    }
+
+    .text-overlay {
+
+
+        left: 47%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 18px;
+        width: 85%;
+        border-bottom-left-radius: 20px;
+        margin-left: 10px;
+        margin-bottom: 3px;
+        border-bottom-right-radius: 20px;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        text-align: center;
+    }
+
+
+    .container {
+        background-color: #6e6e73;
+        height: 450px;
+        margin-top: 20px;
+        border-radius: 20px;
+    }
 }

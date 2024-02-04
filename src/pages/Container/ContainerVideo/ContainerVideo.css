@@ -1,0 +1,23 @@
+.video-Container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+     /* Set a height for the container, adjust as needed */
+}
+
+.video-Container video {
+    max-width: 60%; /* Ensure the video doesn't exceed the container's width */
+    max-height: 60%; /* Ensure the video doesn't exceed the container's height */
+}
+
+
+@media (max-width: 430px) {
+    .video-Container {
+      width: 90%;
+      padding: 10px;
+    }
+  }
