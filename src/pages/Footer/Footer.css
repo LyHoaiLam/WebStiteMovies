@@ -30,12 +30,16 @@
 
 
 .icon-Footer {
-    width: 200px;
     /* background-color: rgb(10, 10, 10); */
     border-bottom: 5px solid white ;
     padding-bottom: 20px;
     margin-right: 50px;
-    width: 350px;
+    width: 280px;
+}
+
+.text-footer {
+    margin-left: 50px;
+    color: white;
 }
 
 .div-footer02 {
@@ -65,4 +69,10 @@
         background-color: #1d1d1e;
         height: 200px;
     }
+
+
+    .text-footer {
+        display: none;
+    }
+    
 }

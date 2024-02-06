@@ -27,6 +27,19 @@ function Footer() {
                     <img className='icon-Footer' src={iconFim} />
                 </div>
             </div>
+
+            <div>
+                <p className='text-footer'>
+                        Apple TV+ is a streaming service from features exclusive Apple Original
+                        shows and movies from some of the industrys top talent,
+                      <br></br>
+                        arriving each all of the available content on Apple TV+ inside the Apple TV app on the Apple TV tab or here on
+                      <br></br>
+                        Apple TV+ is a streaming service from features exclusive Apple Original
+                        shows and movies from some of the industrys top talent,
+                        <br></br> arriving each all of the available content on Apple TV+ inside the Apple TV app on the Apple TV tab or here on 
+                </p>
+            </div>
                 
         </div>
     )

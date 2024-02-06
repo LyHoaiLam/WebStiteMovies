@@ -1,8 +1,10 @@
 .container {
     background-color: #6e6e73;
-    height: 800px;
+
+    height: 820px !important;
     margin-top: 20px;
     border-radius: 20px;
+
 }
 
 .image-container {
