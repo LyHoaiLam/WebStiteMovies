@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import './movieCategory.css'
+
 function MovieCategory() {
     const MovieTypes = [
         {
@@ -105,24 +107,34 @@ function MovieCategory() {
     }, [selectedCategory]);
 
     return (
-        <div>
+        <div className="movie-Category">
             <h1>Movie Category</h1>
             {/* Render category buttons */}
             {MovieTypes.map(category => (
-                <button key={category.key} onClick={() => setSelectedCategory(category)}>
+                <button className="button-Category" key={category.key} onClick={() => setSelectedCategory(category)}>
                     {category.name}
                 </button>
             ))}
-            {/* Render movies */}
-            <div>
-                {filteredMovies.map(movie => (
-                    <div key={movie.id}>
-                        <h2>{movie.title}</h2>
-                        {/* Render additional movie details */}
-                        <a href={`/watch/${movie.id}`}>Watch</a>
-                    </div>
-                ))}
-            </div>
+
+
+
+
+   
+
+
+        <div className="movie-Caterogy-Render">
+            {filteredMovies.map(movie => (
+                <div className="movie-item" key={movie.id}>
+                    <h2 className="movie-Caterogy-Render-Title">{movie.title}</h2>
+                    {/* Render additional movie details */}
+
+                        <a href={`/watch/${movie.id}`}>
+                            <img className="movie-Caterogy-Render-Img" src={`https://www.themoviedb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.title} />
+                        </a>
+                </div>
+            ))}
+        </div>
+
         </div>
     );
 }
