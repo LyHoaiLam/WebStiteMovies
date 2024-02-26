@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Sv1 from "./Sv1";
 import Sv2 from "./Sv2";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,45 +7,25 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function Watch(params) {
-  const [serverUse, changeServer] = useState(1);
-  //get params from url
+  const [serverUse, setServerUse] = useState(1);
   const { id } = useParams();
-
-  const [didGetData, setDidGetData] = useState(false);
-
-  const movieObject = {
-    "id": 7,
-    "tmdb_id": 429,
-    "imdb_id": "tt0060196",
-    "title": "Thiện, Ác, Tà",
-    "english_title": "The Good, the Bad and the Ugly",
-    "backdrop_path": "/3nDF7iOHUxjSV5GazK0cq1t9xUo.jpg",
-    "imdb": 8.8,
-    "release_date": "1966-12-23",
-    "runtime": 161,
-    "genre_ids": [37],
-    "hash": "061E0F98A9D5C171D09CE5C1F11965032FFD1B82",
-    "updated": "2021-09-15T06:40:09.298+00:00"
-  };
   const [movieObject2, setMovieObject2] = useState({});
+  const [didGetData, setDidGetData] = useState(false);
 
   useEffect(() => {
     console.log("Watch.js: Component rendered");
     console.log("Watch.js: movieObject:", id);
-    //use axios get data from api https://api-blog.apewannaliveforever.online/movie/movieInfo/:movieId
+
+    // Fetch movie data from the API
     axios.get(`https://api-blog.apewannaliveforever.online/movie/movieInfo/${id}`)
       .then(res => {
         setMovieObject2(res.data);
+        setDidGetData(true); // Set didGetData to true once data is received
       })
       .catch(error => {
         console.log(error);
       });
-  }, []);
-
-  useEffect(() => {
-    console.log("Watch.js: movieObject2:", movieObject2);
-    setDidGetData(true);
-  }, [movieObject2]);
+  }, [id]); // Include id in the dependency array to trigger useEffect on id change
 
   return (
     <div>
@@ -61,20 +40,24 @@ function Watch(params) {
       </Link>
       <div>
         <h3 className="text-center text-white text-lg font-bold pt-2 pb-2">
-          {movieObject.title}
-          <p className="text-sm font-thin">{movieObject.english_title}</p>
+          {movieObject2.title} {/* Render movie title from movieObject2 */}
+          <p className="text-sm font-thin">{movieObject2.english_title}</p>
         </h3>
-        {didGetData ? (<Sv2 movieObject={movieObject} movieObject2={movieObject2} />
-        ) : null}
+        {/* Render Sv2 component only when data is available */}
+        {didGetData ? (
+          <Sv2 movieObject={movieObject2} />
+        ) : (
+          <p>Loading...</p>
+        )}
 
         <button
-          onClick={() => changeServer(1)}
+          onClick={() => setServerUse(1)}
           className="mr-3 mt-3 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
         >
           Server 1
         </button>
         <button
-          onClick={() => changeServer(2)}
+          onClick={() => setServerUse(2)}
           className="bg-blue-500 mt-3 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
         >
           Server 2
@@ -87,4 +70,5 @@ function Watch(params) {
     </div>
   );
 }
+
 export default Watch;

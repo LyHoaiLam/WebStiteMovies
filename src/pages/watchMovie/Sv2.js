@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-function Sv2({ movieObject, movieObject2 }) {
+function Sv2({ movieObject}) {
   const [rendered, setRendered] = useState(false);
   useEffect(() => {
+    console.log("Sv2.js: Component rendered1111", movieObject);
     if (rendered) return;
     if (typeof window !== "undefined") {
       window.webtor = window.webtor || [];
@@ -42,9 +43,6 @@ function Sv2({ movieObject, movieObject2 }) {
     setRendered(true);
   }, []); // Empty dependency array ensures this effect runs only once
 
-  useEffect(() => {
-    console.log("Sv2.js: useEffect triggered", movieObject2);
-  }, [movieObject2]);
 
   console.log("Sv2.js: useEffect triggered");
 
