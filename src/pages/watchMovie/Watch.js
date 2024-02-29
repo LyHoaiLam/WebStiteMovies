@@ -28,7 +28,7 @@ function Watch(params) {
   }, [id]); // Include id in the dependency array to trigger useEffect on id change
 
   return (
-    <div>
+    <div style={{minHeight: "1200px"}}>
       <Link to="/">
         <h1 className="text-white pl-2 pt-3">
           <FontAwesomeIcon

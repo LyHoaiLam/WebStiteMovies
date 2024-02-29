@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Reset } from 'styled-reset';
 import 'normalize.css';
 import VideoContainer from './pages/Container/ContainerVideo/ContainerVideo'
-
+import css from './App.css'
 import Header from "./pages/Header/Header";
 import Container from "./pages/Container/Container";
 import Footer from "./pages/Footer/Footer";
@@ -21,8 +21,8 @@ function App() {
           <Route path='/' exact element={<Container />}></Route>
           <Route path='/movie-category' element={<MovieCategory />}></Route>
           <Route path='/watch/:id' element={<Watch />}></Route>
-        </Routes>
-        <Footer />
+        </Routes>    
+          <Footer className="min-height" />
       </div>
     </Router>
   );

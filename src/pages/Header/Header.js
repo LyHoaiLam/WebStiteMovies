@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -7,14 +7,13 @@ import IconMovie from '../../Images/IconMovies.png';
 function Header() {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [haveResult, setHaveResult] = useState(false)
+    const [haveResult, setHaveResult] = useState()
 
     const handleSearch = async () => {
         try {
             const response = await fetch(`https://api-blog.apewannaliveforever.online/movie/search/${searchTerm}`);
             const data = await response.json();
-            console.log(data)
-            setSearchResults(data.results);
+            setSearchResults(data);
         } catch (error) {
             console.error('Error fetching search results:', error);
         }
@@ -22,15 +21,17 @@ function Header() {
 
     useEffect(() => {
         if (searchResults && searchResults.length > 0) {
-            setHaveResult(true);
+            setHaveResult(searchResults);
+            console.log("searchResults && searchResults.length > 0");
+
             console.log(searchResults);
         } else {
             setHaveResult(false);
             console.log("No search results");
+            console.log("searchResults && searchResults.length < 0");
+
         }
     }, [searchResults]);
-    
-
 
 
     useEffect(() => {
@@ -39,10 +40,6 @@ function Header() {
             console.log(searchTerm)
         }
     }, [searchTerm]);
-
-    const handleLogin = () => {
-        alert('Bạn chưa Login');
-    };
 
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value);
@@ -61,20 +58,19 @@ function Header() {
                     onChange={handleInputChange}
                 />
     
-                <button onClick={handleLogin} className='button-login'>
+                <button className='button-login'>
                     <FontAwesomeIcon className='input-icon-user' icon={faUser} />
                     <span className='textLogin'>Sign in</span>
                 </button>
             </div>
 
-            <div style={{backgroundColor: "red", width: "200px"}}>
-            {haveResult && searchResults.map(result => (
-                <div key={result.id}>
-                    {/* Hiển thị thông tin kết quả tìm kiếm */}
-                    <p>{result.title}</p>
-                </div>
-            ))}
-        </div>
+            <div style={{width: "200px"}}>
+                {searchResults && searchResults.map(result => (
+                    <div key={result.id}>
+                        <p>{result.title}</p>
+                    </div>
+                ))}
+            </div>
        
         </div>
     );
@@ -82,4 +78,4 @@ function Header() {
     
 }
 
-export default Header;
+export default memo(Header);
