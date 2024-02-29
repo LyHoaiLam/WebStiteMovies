@@ -52,3 +52,12 @@
 }
 
 
+@media (max-width: 430px) {
+    .movie-Caterogy-Render-Img:hover {
+        transform: none;
+    
+    }
+    
+}
+
+

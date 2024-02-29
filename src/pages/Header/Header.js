@@ -8,6 +8,7 @@ function Header() {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [haveResult, setHaveResult] = useState()
+    const [showSearchHistory, setShowSearchHistory] = useState(false);
 
     const handleSearch = async () => {
         try {
@@ -45,6 +46,14 @@ function Header() {
         setSearchTerm(event.target.value);
     };
 
+    const handleInputFocus = () => {
+        setShowSearchHistory(true);
+    };
+
+    const handleInputBlur = () => {
+        setShowSearchHistory(false);
+    };
+
     return (
         <div className='header'>
             <div className='header-container01'>
@@ -56,7 +65,19 @@ function Header() {
                     placeholder='Search'
                     value={searchTerm}
                     onChange={handleInputChange}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                 />
+
+                {showSearchHistory && (
+                    <div className="input-search-history">
+                        {searchResults && searchResults.map(result => (
+                            <div key={result.id}>
+                                <p className='info_Search'>{result.title}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
     
                 <button className='button-login'>
                     <FontAwesomeIcon className='input-icon-user' icon={faUser} />
@@ -64,13 +85,7 @@ function Header() {
                 </button>
             </div>
 
-            <div style={{width: "200px"}}>
-                {searchResults && searchResults.map(result => (
-                    <div key={result.id}>
-                        <p>{result.title}</p>
-                    </div>
-                ))}
-            </div>
+           
        
         </div>
     );
