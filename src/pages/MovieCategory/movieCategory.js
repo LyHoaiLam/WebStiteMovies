@@ -116,12 +116,6 @@ function MovieCategory() {
                 </button>
             ))}
 
-
-
-
-   
-
-
         <div className="movie-Caterogy-Render">
             {filteredMovies.map(movie => (
                 <div className="movie-item" key={movie.id}>
