@@ -30,7 +30,7 @@
     margin-top: 300px !important;
     background-color: white;
     border-radius: 20px;
-    width: 535px;
+    min-width: 535px;
     position: absolute;
     cursor: pointer;
     border: 2px solid black;
@@ -52,6 +52,7 @@
     border-radius: 10px;
     text-align: left;
     background-color: aliceblue;
+    border: none;
 }
 
 .button-login {
@@ -113,8 +114,8 @@
     }
 
     .input-search-history {
-        width: 210px;
-        margin-top: 20px;
+        min-width: 150px;
+        margin-top: 270px !important;
     }
     
     .info_Search {

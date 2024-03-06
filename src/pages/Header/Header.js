@@ -71,11 +71,13 @@ function Header() {
 
                 {showSearchHistory && (
                     <div className="input-search-history">
-                        {searchResults && searchResults.map(result => (
-                            <div key={result.id}>
-                                <p className='info_Search'>{result.title}</p>
-                            </div>
-                        ))}
+                    <div className="search-history-container">
+                    {searchResults && searchResults.map(result => (
+                        <div key={result.id}>
+                            <p className='info_Search'>{result.title}</p>
+                        </div>
+                    ))}
+                </div>
                     </div>
                 )}
     

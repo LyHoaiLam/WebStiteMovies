@@ -17,6 +17,7 @@
 .icon-mxh {
     color: white;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .icon-mxh:hover {

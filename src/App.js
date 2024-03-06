@@ -18,8 +18,7 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path='/' exact element={<Container />}></Route>
-          <Route path='/movie-category' element={<MovieCategory />}></Route>
+          <Route path='/' exact element={<MovieCategory />}></Route>
           <Route path='/watch/:id' element={<Watch />}></Route>
         </Routes>    
           <Footer className="min-height" />
