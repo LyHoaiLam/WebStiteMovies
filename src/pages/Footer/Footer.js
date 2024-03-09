@@ -29,7 +29,8 @@ function Footer() {
             </div>
 
             <div>
-                <p className='text-footer'>Trang xem phim Online với giao diện mới được bố trí và thiết kế thân thiện với người dùng.<br></br>Nguồn phim được tổng hợp từ các website lớn với đa dạng các đầu phim và thể loại vô cùng phong phú.
+                <p className='text-footer'>
+                Phimdev là một nền tảng web phim đa dạng và thu hút người dùng bởi sự đa dạng về nội dung và tính năng tiện ích. Nền tảng này cung cấp một kho phim phong phú, từ các bộ phim bom tấn mới nhất đến các bộ phim cổ điển được yêu thích.
                 </p>
             </div>
                 

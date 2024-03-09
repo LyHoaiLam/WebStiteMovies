@@ -82,13 +82,12 @@ function MovieCategory() {
             "name": "Miền Tây"
         }
     ]
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(MovieTypes.find(category => category.key === 28))
+
     const [filteredMovies, setFilteredMovies] = useState([]);
 
-    const handleCategoryClick = (category) => {
-        console.log("Category clicked", category);
-    };
 
+    
     useEffect(() => {
         if (selectedCategory) {
             // Filter movies based on selected category
@@ -109,28 +108,26 @@ function MovieCategory() {
     return (
         <div className="movie-Category">
             <h1>Movie Category</h1>
-           
+
             {MovieTypes.map(category => (
                 <button className="button-Category" key={category.key} onClick={() => setSelectedCategory(category)}>
                     {category.name}
                 </button>
             ))}
 
+            <div className="movie-Caterogy-Render">
+
+
             
-
-        <div className="movie-Caterogy-Render">
-
-        
-            {filteredMovies.map(movie => (
-                <div className="movie-item" key={movie.id}>
-                    <h2 className="movie-Caterogy-Render-Title">{movie.title}</h2>
-                        <a className="link_Img" href={`/watch/${movie.id}`}>
-                            <img className="movie-Caterogy-Render-Img" src={`https://www.themoviedb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.title} />
-                        </a>
-                </div>
-            ))}
-        </div>
-
+                {filteredMovies.map(movie => (
+                    <div className="movie-item" key={movie.id}>
+                        <h2 className="movie-Caterogy-Render-Title">{movie.title}</h2>
+                            <a className="link_Img" href={`/watch/${movie.id}`}>
+                                <img className="movie-Caterogy-Render-Img" src={`https://www.themoviedb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.title} />
+                            </a>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
